@@ -1,18 +1,1142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>28 Etiquetas HTML5</title>
 </head>
-<body>
-    <center>
-        <h2> OTRAS ETIQUETAS HTML </h2>
-          <h2><a href="index.html">Regresar</a></h2></BR>
-          <br>
-          <br>
-         
 
-    </center>
+<body>
+<h2><a href="index.html">Regresar</a></h2></BR>
+    <h1>28 Etiquetas HTML5</h1>
+
+    <p>
+        En esta página se presentan 28 etiquetas de HTML5,
+        incluyendo su definición, utilidad, ejemplo y resultado.
+    </p>
+
+    <hr>
+
+
+    <h2>1. &lt;blockquote&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;blockquote&gt; es una etiqueta de HTML utilizada para
+        representar una cita extensa tomada de otra fuente.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Sirve para identificar semánticamente una cita larga
+        y diferenciarla del contenido escrito por el autor
+        de la página.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <blockquote>
+        La educación es una herramienta fundamental para
+        adquirir nuevos conocimientos.
+    </blockquote>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El navegador mostrará el texto de la cita separado
+        visualmente del texto normal.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 2. PICTURE -->
+    <!-- ===================================================== -->
+
+    <h2>2. &lt;picture&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;picture&gt; es un elemento HTML que permite proporcionar
+        diferentes versiones de una imagen para que el navegador
+        pueda seleccionar la más adecuada.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza principalmente para mostrar imágenes diferentes
+        dependiendo del tamaño o características de la pantalla.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <picture>
+
+        <source media="(min-width: 800px)"
+                srcset="https://via.placeholder.com/600x300">
+
+        <img src="https://via.placeholder.com/300x150"
+             alt="Imagen de ejemplo">
+
+    </picture>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El navegador mostrará una imagen y podrá seleccionar
+        una versión diferente dependiendo del tamaño disponible.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 3. TRACK -->
+    <!-- ===================================================== -->
+
+    <h2>3. &lt;track&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;track&gt; es una etiqueta utilizada dentro de
+        &lt;video&gt; y &lt;audio&gt; para agregar pistas de texto
+        sincronizadas con contenido multimedia.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Puede utilizarse para subtítulos, traducciones,
+        descripciones y otros tipos de información relacionada
+        con un archivo multimedia.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <video controls width="400">
+
+        <source src="video.mp4" type="video/mp4">
+
+        <track
+            src="subtitulos.vtt"
+            kind="subtitles"
+            srclang="es"
+            label="Español">
+
+    </video>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se mostrará un reproductor de video. Si existen los
+        archivos correspondientes, se podrán activar los
+        subtítulos en español.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 4. IFRAME -->
+    <!-- ===================================================== -->
+
+    <h2>4. &lt;iframe&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;iframe&gt; significa "Inline Frame". Permite insertar
+        otro documento HTML dentro de la página actual.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para incorporar contenido externo como
+        páginas web, mapas, videos u otros documentos.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <iframe
+        src="https://www.example.com"
+        width="500"
+        height="250"
+        title="Página web de ejemplo">
+    </iframe>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Aparecerá una ventana dentro de la página que contiene
+        el contenido del sitio indicado.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 5. WBR -->
+    <!-- ===================================================== -->
+
+    <h2>5. &lt;wbr&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;wbr&gt; significa "Word Break Opportunity".
+        Indica un lugar donde el navegador puede realizar
+        un salto de línea.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Sirve para evitar problemas de visualización cuando
+        existen palabras o cadenas extremadamente largas.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        EsteEsUnTextoMuyLargo<wbr>
+        QuePuedeDividirse<wbr>
+        EnDiferentesPartes.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El navegador podrá realizar un salto de línea en los
+        puntos indicados cuando sea necesario.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 6. KBD -->
+    <!-- ===================================================== -->
+
+    <h2>6. &lt;kbd&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;kbd&gt; representa una entrada que normalmente
+        realiza el usuario mediante un teclado u otro dispositivo
+        de entrada.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza principalmente para mostrar teclas,
+        combinaciones de teclas y comandos.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Para guardar un archivo presiona
+        <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se mostrará la combinación de teclas que debe presionar
+        el usuario.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 7. SAMP -->
+    <!-- ===================================================== -->
+
+    <h2>7. &lt;samp&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;samp&gt; representa una salida o resultado producido
+        por un programa informático.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Sirve para identificar dentro de un documento el texto
+        que representa una respuesta generada por un programa.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Resultado:
+        <samp>Archivo guardado correctamente.</samp>
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El mensaje se identifica como una salida producida
+        por un programa.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 8. TIME -->
+    <!-- ===================================================== -->
+
+    <h2>8. &lt;time&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;time&gt; representa una fecha, una hora o un periodo
+        específico de tiempo.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Permite identificar información temporal de manera
+        semántica para los navegadores y otros programas.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        La clase comienza a las
+        <time datetime="08:00">8:00 AM</time>.
+    </p>
+
+    <p>
+        La fecha del evento es
+        <time datetime="2026-09-24">24 de septiembre de 2026</time>.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El usuario podrá ver la fecha y hora normalmente,
+        mientras que el atributo datetime proporciona
+        información estructurada.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 9. DATA -->
+    <!-- ===================================================== -->
+
+    <h2>9. &lt;data&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;data&gt; permite asociar un contenido visible para
+        el usuario con un valor que puede ser interpretado
+        por una máquina.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza cuando queremos mostrar información legible
+        para las personas y proporcionar también un valor
+        estructurado para los programas.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Producto:
+        <data value="001">Computadora portátil</data>
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El usuario verá "Computadora portátil", mientras que
+        el valor asociado será "001".
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 10. Q -->
+    <!-- ===================================================== -->
+
+    <h2>10. &lt;q&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;q&gt; representa una cita corta que forma parte
+        del contenido de un párrafo.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para marcar citas breves que aparecen
+        directamente dentro de una oración.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Mi profesor siempre dice:
+        <q>La práctica ayuda a mejorar.</q>
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El navegador mostrará la frase como una cita corta.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 11. CITE -->
+    <!-- ===================================================== -->
+
+    <h2>11. &lt;cite&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;cite&gt; se utiliza para identificar el título
+        de una obra creativa, como un libro, película,
+        canción o artículo.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Sirve para indicar claramente que un texto corresponde
+        al título de una obra.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Una obra literaria famosa es
+        <cite>Don Quijote de la Mancha</cite>.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El título de la obra queda identificado semánticamente.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 12. SUP -->
+    <!-- ===================================================== -->
+
+    <h2>12. &lt;sup&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;sup&gt; representa un texto que debe mostrarse
+        como superíndice.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza frecuentemente para representar potencias,
+        exponentes, referencias y notas.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Dos elevado a tres:
+        2<sup>3</sup> = 8
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El número 3 aparecerá elevado respecto al número 2.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 13. SMALL -->
+    <!-- ===================================================== -->
+
+    <h2>13. &lt;small&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;small&gt; representa información secundaria,
+        como notas, aclaraciones o información complementaria.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para diferenciar información secundaria
+        del contenido principal.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Precio: $500
+        <small>IVA incluido.</small>
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        La información secundaria aparecerá con un tamaño
+        de texto menor en la presentación predeterminada.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 14. ABBR -->
+    <!-- ===================================================== -->
+
+    <h2>14. &lt;abbr&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;abbr&gt; representa una abreviatura o acrónimo.
+        Puede utilizar el atributo title para proporcionar
+        el significado completo.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Ayuda a identificar abreviaturas y proporciona
+        información adicional sobre su significado.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Estoy aprendiendo
+        <abbr title="HyperText Markup Language">HTML</abbr>.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se mostrará "HTML". Al colocar el cursor sobre la
+        abreviatura puede aparecer su significado.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 15. DFN -->
+    <!-- ===================================================== -->
+
+    <h2>15. &lt;dfn&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;dfn&gt; identifica el término que está siendo
+        definido dentro de un texto.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para marcar un concepto o término cuando
+        se está proporcionando su definición.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        <dfn>HTML</dfn> es un lenguaje de marcado utilizado
+        para estructurar contenido en páginas web.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El término HTML queda identificado como el concepto
+        que está siendo definido.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 16. INS -->
+    <!-- ===================================================== -->
+
+    <h2>16. &lt;ins&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;ins&gt; representa contenido que ha sido insertado
+        o agregado a un documento.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para identificar información nueva que
+        fue agregada posteriormente a un texto.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Precio actualizado:
+        <ins>$400</ins>
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El contenido agregado se mostrará identificado
+        como una inserción.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 17. DEL -->
+    <!-- ===================================================== -->
+
+    <h2>17. &lt;del&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;del&gt; representa contenido que ha sido eliminado
+        de un documento.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para mostrar información que anteriormente
+        formaba parte del documento pero que posteriormente
+        fue eliminada.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Precio anterior:
+        <del>$500</del>
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El precio anterior aparecerá normalmente tachado
+        en la presentación predeterminada del navegador.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 18. PROGRESS -->
+    <!-- ===================================================== -->
+
+    <h2>18. &lt;progress&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;progress&gt; representa el progreso de una tarea
+        que se encuentra en proceso de realización.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Puede utilizarse para mostrar el avance de una descarga,
+        instalación, carga de información u otra tarea.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Progreso de la descarga:
+    </p>
+
+    <progress value="70" max="100">
+        70%
+    </progress>
+
+    <p>
+        70% completado.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El navegador mostrará una barra de progreso indicando
+        que la tarea se encuentra al 70%.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 19. DETAILS -->
+    <!-- ===================================================== -->
+
+    <h2>19. &lt;details&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;details&gt; crea un elemento interactivo que permite
+        ocultar o mostrar información adicional.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para crear secciones desplegables sin
+        necesidad de utilizar JavaScript.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <details>
+        <summary>¿Qué es HTML?</summary>
+
+        <p>
+            HTML significa HyperText Markup Language.
+            Es un lenguaje de marcado utilizado para estructurar
+            el contenido de las páginas web.
+        </p>
+    </details>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Aparecerá una sección que el usuario puede abrir
+        y cerrar haciendo clic en el título.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 20. DIALOG -->
+    <!-- ===================================================== -->
+
+    <h2>20. &lt;dialog&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;dialog&gt; representa una ventana o cuadro de diálogo
+        dentro de una página web.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para mostrar información, mensajes,
+        formularios u otros contenidos en forma de diálogo.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <dialog open>
+
+        <p>
+            Este es un cuadro de diálogo creado
+            utilizando únicamente HTML.
+        </p>
+
+        <button>
+            Botón de ejemplo
+        </button>
+
+    </dialog>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se mostrará un cuadro de diálogo abierto dentro
+        de la página.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 21. HEADER -->
+    <!-- ===================================================== -->
+
+    <h2>21. &lt;header&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;header&gt; representa la cabecera de una página
+        o de una sección.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para colocar títulos, logotipos, menús
+        u otra información introductoria.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <header>
+
+        <h4>Mi página web</h4>
+
+        <p>
+            Esta es la cabecera de una sección.
+        </p>
+
+    </header>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se mostrará una sección identificada semánticamente
+        como cabecera.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 22. MARK -->
+    <!-- ===================================================== -->
+
+    <h2>22. &lt;mark&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;mark&gt; representa texto que se desea resaltar
+        por su importancia o relevancia.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Sirve para destacar palabras o fragmentos importantes
+        dentro de un texto.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <p>
+        Esta palabra está
+        <mark>resaltada</mark>.
+    </p>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El texto marcado aparecerá resaltado visualmente.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 23. SUMMARY -->
+    <!-- ===================================================== -->
+
+    <h2>23. &lt;summary&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;summary&gt; define el título visible de un elemento
+        &lt;details&gt;.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Permite indicar al usuario qué información aparecerá
+        cuando se abra la sección desplegable.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <details>
+
+        <summary>Información sobre HTML</summary>
+
+        <p>
+            HTML se utiliza para estructurar páginas web.
+        </p>
+
+    </details>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El texto de summary funciona como el título que
+        permite abrir o cerrar la información.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 24. MAP -->
+    <!-- ===================================================== -->
+
+    <h2>24. &lt;map&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;map&gt; permite crear un mapa de imagen con
+        diferentes zonas interactivas.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Permite hacer diferentes partes de una imagen
+        seleccionables mediante la etiqueta &lt;area&gt;.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <img src="https://via.placeholder.com/400x200"
+         alt="Mapa de ejemplo"
+         usemap="#mapaEjemplo"
+         width="400"
+         height="200">
+
+    <map name="mapaEjemplo">
+
+        <area shape="rect"
+              coords="0,0,200,200"
+              href="https://www.google.com"
+              alt="Zona izquierda">
+
+    </map>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Una zona de la imagen puede funcionar como un enlace.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 25. FIGCAPTION -->
+    <!-- ===================================================== -->
+
+    <h2>25. &lt;figcaption&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;figcaption&gt; representa el título o descripción
+        de una figura.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza normalmente dentro de &lt;figure&gt; para
+        describir una imagen, gráfico, código u otro contenido.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <figure>
+
+        <img src="https://via.placeholder.com/300x150"
+             alt="Imagen de ejemplo">
+
+        <figcaption>
+            Esta es la descripción de la imagen.
+        </figcaption>
+
+    </figure>
+
+    <h3>Resultado</h3>
+
+    <p>
+        La descripción aparece asociada a la figura.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 26. ASIDE -->
+    <!-- ===================================================== -->
+
+    <h2>26. &lt;aside&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;aside&gt; representa contenido relacionado
+        indirectamente con el contenido principal.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se puede utilizar para mostrar información complementaria,
+        notas, enlaces relacionados u otro contenido secundario.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <aside>
+
+        <h4>Información adicional</h4>
+
+        <p>
+            Este contenido proporciona información complementaria
+            al tema principal.
+        </p>
+
+    </aside>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se muestra un bloque de contenido complementario.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 27. DIALOG -->
+    <!-- ===================================================== -->
+
+    <h2>27. &lt;dialog&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;dialog&gt; representa una ventana o cuadro de diálogo
+        dentro de una página web.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Se utiliza para mostrar mensajes, información,
+        formularios u otros contenidos en forma de diálogo.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <dialog open>
+
+        <p>
+            Este es un mensaje dentro de un cuadro de diálogo.
+        </p>
+
+    </dialog>
+
+    <h3>Resultado</h3>
+
+    <p>
+        Se mostrará un cuadro de diálogo abierto dentro
+        de la página.
+    </p>
+
+    <hr>
+
+
+    <!-- ===================================================== -->
+    <!-- 28. SECTION -->
+    <!-- ===================================================== -->
+
+    <h2>28. &lt;section&gt;</h2>
+
+    <h3>Definición</h3>
+
+    <p>
+        &lt;section&gt; representa una sección independiente
+        y temática de un documento.
+    </p>
+
+    <h3>¿Para qué sirve?</h3>
+
+    <p>
+        Sirve para dividir una página en diferentes secciones
+        relacionadas con un tema específico.
+    </p>
+
+    <h3>Ejemplo</h3>
+
+    <section>
+
+        <h4>Sección de HTML</h4>
+
+        <p>
+            Esta sección contiene información relacionada
+            con el lenguaje HTML.
+        </p>
+
+    </section>
+
+    <h3>Resultado</h3>
+
+    <p>
+        El contenido queda agrupado semánticamente dentro
+        de una sección independiente.
+    </p>
+
+    <hr>
+
 </body>
+
 </html>
