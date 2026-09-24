@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios HTML</title>
+</head>
+<body>
+    <center>
+        <h1>FORMULARIOS HTML</h1>
+        <br>
+        <h3><a href="index.html">REGRESAR</a></h3>
+        <table width="100%" border align="center">
+            <thead>
+                <tr align="center">
+                    <th>NP</th>
+                    <td>Nombre</td>
+                    <td>Ejemplo</td>
+                    <td><h3>Descripcion</h3></td>
+                    <td><h3>¿Quién lo hizo?</h3></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><h3>1</h3></td>
+                    <td>optgroup</td>
+                    <td>
+                        <label for="">Carrera</label>
+                        <select name="Carrera" id="">
+                        <optgroup label="Economico-Administrativas">
+                            <option value="">Contabilidad</option>
+                            <option value="">Administracion</option>
+                        </optgroup>
+                        <optgroup label="Tecnologicas">
+                            <option value="">Programacion</option>
+                            <option value="">Mantenimiento</option>
+                        </optgroup>
+                        </select>
+                    </td>
+                    <td>
+                        Etiqueta que sirve para agrupar opciones dentro de una lista despegable
+                    </td>
+                    <td>
+                        ESTEBAN 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>2</h3></td>
+                    <td>meter</td>
+                    <td>
+                        <meter min="0" max="10" low="5" high="8" value="6.0" optimum="10" title="6.0 de 10"></meter>
+                    </td>
+                    <td>Muestra graficamente un valor prederterminado</td>
+                    <td>
+                        ANGEL 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>3</h3></td>
+                    <td>label</td>
+                    <td>
+                        <label for="usuario">Usuario:</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Escribe tu usuario">
+                        <br><br>
+                        <label>
+                            Contraseña:
+                            <input type="password" name="clave" placeholder="Escribe tu contraseña">
+                        </label>
+                    </td>
+                    <td>
+                        El label es un elemento que describe un campo de formulario. Su función es indicar al usuario qué debe escribir y mejorar la accesibilidad[cite: 1, 2].
+                        <br><br>
+                        <strong>Formas de uso:</strong>
+                        <ol>
+                            <li><strong>Con atributo for:</strong> conecta el label con el input usando el id[cite: 1, 2].</li>
+                            <li><strong>Envolviendo el input:</strong> mete el input dentro del label sin necesidad de for ni id[cite: 2].</li>
+                        </ol>
+                    </td>
+                    <td>
+                        JESUS ALBERTO
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>4</h3></td>
+                    <td>checkbox</td>
+                    <td>
+                        <form action="/procesar-datos" method="POST">
+                            <p><strong>Elige tus pasatiempos:</strong></p>
+                            
+                            <input type="checkbox" id="leer" name="pasatiempos" value="lectura">
+                            <label for="leer">Leer libros</label><br>
+
+                            <input type="checkbox" id="musica" name="pasatiempos" value="musica" checked>
+                            <label for="musica">Escuchar música</label><br>
+
+                            <input type="checkbox" id="deportes" name="pasatiempos" value="deportes">
+                            <label for="deportes">Hacer deporte</label><br><br>
+
+                            <p><strong>Atributos comunes:</strong></p>
+                            <input type="checkbox" id="terminos" name="terminos" value="aceptados" required>
+                            <label for="terminos">Acepto los términos <strong>(Obligatorio)</strong></label><br>
+
+                            <input type="checkbox" id="premium" name="suscripcion" value="premium" disabled>
+                            <label for="premium">Opción Premium <em>(No disponible)</em></label><br><br>
+
+                            <button type="submit">Enviar Formulario</button>
+                        </form>
+                    </td>
+                    <td>
+                        Permite al usuario seleccionar una o múltiples opciones de una lista[cite: 4].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><strong>required:</strong> Campo obligatorio[cite: 3, 4].</li>
+                            <li><strong>checked:</strong> Marcado por defecto[cite: 3, 4].</li>
+                            <li><strong>disabled:</strong> Deshabilita la casilla[cite: 3].</li>
+                            <li><strong>autofocus / tabindex:</strong> Foco automático y orden de tabulación[cite: 3].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        BRAYAN MANUEL 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>5</h3></td>
+                    <td>file</td>
+                    <td>
+                        <form enctype="multipart/form-data">
+                            <label>Sube tu foto:</label>
+                            <input type="file">
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </td>
+                    <td>
+                        Permite al usuario seleccionar un archivo de su dispositivo para subirlo al servidor[cite: 5]. 
+                        <br><br>
+                        <strong>Importante:</strong> Requiere que el formulario tenga el atributo <code>enctype="multipart/form-data"</code> para procesar archivos correctamente[cite: 5].
+                    </td>
+                    <td>
+                        SOSA 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>6</h3></td>
+                    <td>fieldset / legend</td>
+                    <td>
+                        <form>
+                            <fieldset>
+                                <legend>Datos personales</legend>
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre">
+                                <label for="edad">Edad:</label>
+                                <input type="number" id="edad" name="edad">
+                            </fieldset>
+                        </form>
+                    </td>
+                    <td>
+                        <code>&lt;fieldset&gt;</code> se utiliza para agrupar elementos relacionados dentro de un formulario mediante un recuadro[cite: 6].
+                        <br><br>
+                        <code>&lt;legend&gt;</code> define el título o cabecera de dicho grupo[cite: 6].
+                    </td>
+                    <td>
+                        ZOE 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>7</h3></td>
+                    <td>range</td>
+                    <td>
+                        <h2>Cuestionario de Hábitos Diarios</h2>
+                        <form action="/guardar-habitos" method="POST">
+                            <!-- Pregunta 1 -->
+                            <div>
+                                <label for="sueno">1. ¿Cuántas horas duermes en promedio por noche? (0 a 12)</label>
+                                <br><br>
+                                <input type="range" id="sueno" name="sueno" min="0" max="12" value="7" oninput="document.getElementById('res_sueno').innerText = this.value + ' horas'">
+                                <strong><span id="res_sueno">7 horas</span></strong>
+                            </div>
+
+                            <br><hr><br>
+
+                            <!-- Pregunta 2 -->
+                            <div>
+                                <label for="estres">2. ¿Cuál es tu nivel de estrés actual? (1 = Relajado, 100 = A punto de explotar)</label>
+                                <br><br>
+                                <input type="range" id="estres" name="estres" min="1" max="100" value="20" oninput="document.getElementById('res_estres').innerText = this.value">
+                                <strong><span id="res_estres">20</span></strong>
+                            </div>
+
+                            <br><hr><br>
+
+                            <!-- Pregunta 3 -->
+                            <div>
+                                <label for="ejercicio">3. ¿Cuántos días a la semana haces ejercicio? (0 a 7)</label>
+                                <br><br>
+                                <input type="range" id="ejercicio" name="ejercicio" min="0" max="7" value="3" oninput="document.getElementById('res_ejercicio').innerText = this.value + ' días'">
+                                <strong><span id="res_ejercicio">3 días</span></strong>
+                            </div>
+
+                            <br><hr><br>
+
+                            <!-- Pregunta 4 -->
+                            <div>
+                                <label for="energia">4. ¿Cuánta energía sientes al despertar? (1 = Nada, 5 = Muchísima)</label>
+                                <br><br>
+                                <input type="range" id="energia" name="energia" min="1" max="5" value="3" oninput="document.getElementById('res_energia').innerText = 'Nivel ' + this.value">
+                                <strong><span id="res_energia">Nivel 3</span></strong>
+                            </div>
+
+                            <br><hr><br>
+
+                            <!-- Pregunta 5 -->
+                            <div>
+                                <label for="temperatura">5. ¿A qué temperatura prefieres tu habitación para dormir? (15°C a 30°C)</label>
+                                <br><br>
+                                <input type="range" id="temperatura" name="temperatura" min="15" max="30" step="0.5" value="22" oninput="document.getElementById('res_temperatura').innerText = this.value + ' °C'">
+                                <strong><span id="res_temperatura">22 °C</span></strong>
+                            </div>
+
+                            <br><br>
+                            <input type="submit" value="Enviar Cuestionario">
+                        </form>
+                    </td>
+                    <td>
+                        Muestra un control deslizante para seleccionar un valor numérico dentro de un rango determinado[cite: 8, 10, 11].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><strong>min / max:</strong> Definen el valor mínimo y máximo permitido[cite: 8, 10, 11].</li>
+                            <li><strong>step:</strong> Define el incremento de paso (permite números decimales como <code>0.5</code>)[cite: 8].</li>
+                            <li><strong>value:</strong> Establece el valor inicial por defecto[cite: 8, 10, 11].</li>
+                            <li><strong>oninput:</strong> Evento de JavaScript para actualizar la vista del valor en tiempo real[cite: 8, 10, 11].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ABRAHAM 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>8</h3></td>
+                    <td>reset</td>
+                    <td>
+                        <form>
+                            <label for="nombre_reset">Nombre:</label>
+                            <input type="text" id="nombre_reset"><br><br>
+                            <label for="edad_reset">Edad:</label>
+                            <input type="text" id="edad_reset"><br><br>
+                            <input type="reset" value="Limpiar">
+                        </form>
+                    </td>
+                    <td>
+                        El botón Reset sirve para restablecer todos los campos de un formulario a sus valores iniciales[cite: 12].
+                        <br><br>
+                        Si el usuario escribe información y después presiona el botón "Limpiar", los datos escritos se borrarán del formulario[cite: 12]. Este botón no elimina información de una base de datos, solamente restablece los campos[cite: 12].
+                    </td>
+                    <td>
+                        XIMENA 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>9</h3></td>
+                    <td>datalist</td>
+                    <td>
+                        <form action="/procesar-datos" method="POST">
+                            <fieldset>
+                                <legend>Información de Preferencias Tecnográficas</legend>
+                                <p>
+                                    <label for="sistema-operativo">Sistema Operativo Principal:</label><br>
+                                    <input type="text" id="sistema-operativo" name="so_usuario" list="lista-so" placeholder="Ej. Ubuntu, Windows, macOS..." autocomplete="off" aria-describedby="ayuda-so" required><br>
+                                    <small id="ayuda-so">Puedes seleccionar una opción sugerida o escribir una opción personalizada.</small>
+                                </p>
+
+                                <datalist id="lista-so">
+                                    <select name="so_fallback">
+                                        <option value="Windows 11">Windows 11 (Microsoft)</option>
+                                        <option value="macOS Sequoia">macOS Sequoia (Apple)</option>
+                                        <option value="Ubuntu Linux">Ubuntu Linux (Canonical)</option>
+                                        <option value="Fedora">Fedora Workstation</option>
+                                        <option value="Debian">Debian GNU/Linux</option>
+                                        <option value="Arch Linux">Arch Linux</option>
+                                        <option value="Android" disabled>Android (Solo Móvil - No disponible)</option>
+                                    </select>
+                                </datalist>
+
+                                <p>
+                                    <label for="comentarios">Comentarios adicionales:</label><br>
+                                    <textarea id="comentarios" name="comentarios" rows="4" cols="40" placeholder="Escribe aquí..."></textarea>
+                                </p>
+                            </fieldset>
+                            <br>
+                            <button type="submit">Enviar Formulario</button>
+                            <button type="reset">Limpiar Campos</button>
+                        </form>
+                    </td>
+                    <td>
+                        Proporciona una lista de opciones predefinidas como sugerencias para un campo <code>&lt;input&gt;</code> mediante el atributo <code>list</code>[cite: 13, 14]. Permite autocompletado dinámico al escribir[cite: 13].
+                    </td>
+                    <td>
+                        REGINA 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>10</h3></td>
+                    <td>date</td>
+                    <td>
+                        <form action="#" method="get" autocomplete="on">
+                            <label for="fecha">Selecciona una fecha:</label>
+                            <input 
+                                type="date" 
+                                id="fecha" 
+                                name="fecha" 
+                                value="2026-09-21" 
+                                min="2000-01-01" 
+                                max="2030-12-31" 
+                                step="1" 
+                                required 
+                                autocomplete="bday" 
+                                autofocus 
+                                form="formulariofecha"
+                            >
+                            <br><br>
+                            <input type="submit" value="Enviar">
+                            <input type="reset" value="Borrar">
+                        </form>
+                    </td>
+                    <td>
+                        Permite al usuario seleccionar una fecha mediante un selector de calendario desplegable[cite: 17].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><strong>value:</strong> Fecha predeterminada[cite: 17].</li>
+                            <li><strong>min / max:</strong> Límite de fechas seleccionables[cite: 17].</li>
+                            <li><strong>step:</strong> Intervalo en días entre fechas seleccionables[cite: 17].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ni idea de quien es 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>11</h3></td>
+                    <td>meter</td>
+                    <td>
+                        <label for="nota">Nota de examen</label><br>
+                        <meter id="nota" min="0" max="10" low="5" high="8" optimum="10" value="6.0" title="6.0 de 10"></meter>
+                        <span>6.0 / 10</span>
+                    </td>
+                    <td>
+                        Muestra de forma gráfica una medida escalar dentro de un rango conocido (como una nota o uso de disco)[cite: 18].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><strong>min / max:</strong> Rango de valores posibles[cite: 18].</li>
+                            <li><strong>value:</strong> Valor actual que se representa[cite: 18].</li>
+                            <li><strong>low / high / optimum:</strong> Definen los rangos bajo, alto y el valor óptimo para cambiar el color de la barra[cite: 18].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ANGEL                    
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>12</h3></td>
+                    <td>fieldset / form</td>
+                    <td>
+                        <form id="formPrincipal">
+                            <fieldset>
+                                <legend>Datos personales</legend>
+                                <label>Nombre:</label>
+                                <input type="text" name="nombre">
+                            </fieldset>
+                            <fieldset disabled="disabled">
+                                <legend>Configuracion Avanzada</legend>
+                                <label>Ruta del sistema</label>
+                                <input type="text" name="ruta" value="/var/www/html">
+                                <input type="checkbox" name="forzar" checked>Forzar reinicio
+                            </fieldset>
+                            <button type="submit">Enviar</button>
+                        </form>
+                        <fieldset form="formPrincipal">
+                            <legend>Paso</legend>
+                            <label>Telefono alrternativo:</label>
+                            <input type="tel" name="telefono">
+                        </fieldset>
+                    </td>
+                    <td>
+                        Permite asociar un <code>&lt;fieldset&gt;</code> externo a un formulario mediante el atributo <code>form="id"</code>[cite: 19], además de deshabilitar grupos enteros de campos con el atributo <code>disabled</code>[cite: 19].
+                    </td>
+                    <td>
+                        GABRIEL
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>13</h3></td>
+                    <td>textarea / input email</td>
+                    <td>
+                        <form>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre">
+                            <br><br>
+                            <label for="correo">Correo Electronico:</label>
+                            <input type="email" id="correo" name="correo">
+                            <br><br>
+                            <label for="comentario">Escribe tu Comentario:</label>
+                            <br>
+                            <textarea id="comentario" name="comentario" rows="6" cols="40" placeholder="Escribe aqui tu comentario..."></textarea>
+                            <br><br>
+                            <button type="submit">Enviar</button>
+                        </form>
+                    </td>
+                    <td>
+                        Muestra campos estándar de entrada de datos[cite: 20]:
+                        <br><br>
+                        <ul>
+                            <li><code>&lt;input type="email"&gt;</code> valida que el texto introducido sea una dirección de correo válida[cite: 20].</li>
+                            <li><code>&lt;textarea&gt;</code> permite ingresar textos largos de múltiples líneas (definidos por <code>rows</code> y <code>cols</code>)[cite: 20].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        NATALIA
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>14</h3></td>
+                    <td>select / option</td>
+                    <td>
+                        <h2>Ejemplo de select</h2>
+                        <label for="pais">Selecciona tu pais</label>
+                        <select id="pais" name="pais">
+                            <option value="mx">Mexico</option>
+                            <option value="es">España</option>
+                            <option value="ar">Argentina</option>
+                            <option value="co">Colombia</option>
+                        </select>
+                        <br><br>
+                        <button>Enviar</button>
+                    </td>
+                    <td>
+                        Crea un menú desplegable de opciones[cite: 21]:
+                        <br><br>
+                        <ul>
+                            <li><code>&lt;select&gt;</code> define la lista desplegable[cite: 21].</li>
+                            <li><code>&lt;option&gt;</code> define cada una de las opciones seleccionables con su respectivo atributo <code>value</code>[cite: 21].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        MAYTE
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>15</h3></td>
+                    <td>Tipos de input y form</td>
+                    <td>
+                        <form action="" method="get">
+                            <!-- Texto -->
+                            <input type="text" placeholder="Texto"><br>
+                            <!-- Correo -->
+                            <input type="email" placeholder="Correo"><br>
+                            <!-- Contraseña -->
+                            <input type="password" placeholder="Contraseña"><br>
+                            <!-- Número -->
+                            <input type="number" placeholder="Número"><br>
+                            <!-- Fecha -->
+                            <input type="date"><br>
+                            <!-- Casilla -->
+                            <input type="checkbox"> Casilla<br>
+                            <!-- Botones de opción -->
+                            <input type="radio"> Opción<br>
+                            <!-- Archivo -->
+                            <input type="file">
+                        </form>
+                    </td>
+                    <td>
+                        Muestra los principales tipos de entradas (<code>input</code>)[cite: 22] y las formas de configurar el contenedor de formulario (<code>form</code>)[cite: 23]:
+                        <br><br>
+                        <ul>
+                            <li><strong>action:</strong> Define la URL a la que se envían los datos recopilados[cite: 23].</li>
+                            <li><strong>method="get":</strong> Envía los datos adjuntos en la URL[cite: 23].</li>
+                            <li><strong>method="post":</strong> Envía los datos de forma oculta en el cuerpo de la petición HTTP[cite: 23].</li>
+                        </ul>
+                    </td>
+                    <td>
+                      CHARBEL
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>16</h3></td>
+                    <td>color / datalist</td>
+                    <td>
+                        <h2>Formulario: Selector de Color</h2>
+                        <form action="/guardar-datos">
+                            <label>Elige tu color:</label>
+                            <input 
+                                type="color" 
+                                name="color_usuario" 
+                                value="#ff0000" 
+                                list="mis_colores" 
+                                title="Haz clic para abrir la paleta de colores" 
+                                autofocus
+                            >
+                            
+                            <datalist id="mis_colores">
+                                <option value="#ff0000">Rojo</option>
+                                <option value="#00ff00">Verde</option>
+                                <option value="#0000ff">Azul</option>
+                            </datalist>
+
+                            <br><br>
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </td>
+                    <td>
+                        Muestra un selector que permite al usuario seleccionar un color visualmente mediante una paleta cromática[cite: 24].
+                        <br><br>
+                        <strong>Atributos y elementos:</strong>
+                        <ul>
+                            <li><strong>type="color":</strong> Genera el recuadro interactivo para la selección de color[cite: 24].</li>
+                            <li><strong>value:</strong> Define el color HEX predeterminado (ej. <code>#ff0000</code>)[cite: 24].</li>
+                            <li><strong>datalist:</strong> Ofrece una paleta de colores predefinidos o sugeridos rápida[cite: 24].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ni idea de quien sea 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>17</h3></td>
+                    <td>Atributos de formulario</td>
+                    <td>
+                        <h2>Formulario de Inicio de Sesión</h2>
+                        <form action="/login" method="POST">
+                            <p>
+                                <label for="correo">Correo Electrónico:</label><br>
+                                <input 
+                                    type="email" 
+                                    id="correo" 
+                                    name="email" 
+                                    required 
+                                    placeholder="ejemplo@correo.com"
+                                >
+                            </p>
+                            <p>
+                                <label for="clave">Contraseña:</label><br>
+                                <input 
+                                    type="password" 
+                                    id="clave" 
+                                    name="password" 
+                                    required 
+                                    minlength="8" 
+                                    maxlength="20" 
+                                    autocomplete="current-password" 
+                                    placeholder="Escribe tu contraseña" 
+                                    title="La contraseña debe tener entre 8 y 20 caracteres"
+                                >
+                            </p>
+                            <p>
+                                <button type="submit">Ingresar</button>
+                            </p>
+                        </form>
+                    </td>
+                    <td>
+                        Demuestra la aplicación práctica de atributos en campos de entrada[cite: 25, 29]:
+                        <br><br>
+                        <ul>
+                            <li><strong>required:</strong> Hace obligatorio el campo[cite: 26].</li>
+                            <li><strong>minlength / maxlength:</strong> Limitan la cantidad de caracteres[cite: 26].</li>
+                            <li><strong>autocomplete:</strong> Ayuda a los gestores de contraseñas[cite: 26].</li>
+                            <li><strong>title:</strong> Muestra un mensaje flotante de ayuda[cite: 27].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        HECTOR
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>18</h3></td>
+                    <td>reset / input number</td>
+                    <td>
+                        <h1>Formulario</h1>
+                        <form>
+                            <label>Nombre:</label>
+                            <input type="text" name="nombre">
+                            <br><br>
+                            <label>Edad:</label>
+                            <input type="number" name="edad">
+                            <br><br>
+                            <input type="reset" value="Limpiar">
+                        </form>
+                    </td>
+                    <td>
+                        Ejemplo básico de formulario con botón de reinicio[cite: 30]:
+                        <br><br>
+                        <ul>
+                            <li><code>&lt;input type="number"&gt;</code> restringe el campo únicamente a valores numéricos[cite: 30].</li>
+                            <li><code>&lt;input type="reset"&gt;</code> restaura los valores de todos los campos del formulario a su estado original[cite: 30].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ni idea de quien sea 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>19</h3></td>
+                    <td>url / Formulario URL</td>
+                    <td>
+                        <h2>Soy CECyTEM y amo la economía</h2>
+                        <p>Ingresa tu página web favorita</p>
+                        <form action="#" method="POST">
+                            <label for="nombre">Nombre:</label><br>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+
+                            <label for="pagina">Tu página web (URL):</label><br>
+                            <input 
+                                type="url" 
+                                id="pagina" 
+                                name="pagina" 
+                                placeholder="https://www.ejemplo.com" 
+                                required
+                            ><br><br>
+
+                            <button type="submit">Guardar URL</button>
+                            <button type="reset">Borrar</button>
+                        </form>
+                    </td>
+                    <td>
+                        Permite ingresar y validar direcciones web completas (URLs)[cite: 31]:
+                        <br><br>
+                        <ul>
+                            <li><code>&lt;input type="url"&gt;</code> valida que el texto empiece con el formato correcto de un enlace (ej. <code>https://</code>)[cite: 31].</li>
+                            <li><strong>required:</strong> Obliga al usuario a llenar el campo antes de enviar[cite: 31].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        santiago 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>20</h3></td>
+                    <td>number / Formulario Number</td>
+                    <td>
+                        <h1>Formulario de número</h1>
+                        <form action="#" method="get" autocomplete="on">
+                            <label for="numero">Ingresa un número:</label>
+                            <input 
+                                type="number" 
+                                id="numero" 
+                                name="numero" 
+                                value="18" 
+                                min="1" 
+                                max="100" 
+                                step="1" 
+                                required 
+                                placeholder="Escribe un número" 
+                                autofocus 
+                                autocomplete="off"
+                            >
+                            <br><br>
+                            <input type="submit" value="Enviar">
+                            <input type="reset" value="Borrar">
+                        </form>
+                    </td>
+                    <td>
+                        Permite la entrada de valores numéricos con controles de incremento y decremento[cite: 32]:
+                        <br><br>
+                        <ul>
+                            <li><code>&lt;input type="number"&gt;</code> restringe el campo únicamente a números[cite: 32].</li>
+                            <li><strong>min / max:</strong> Delimitan los valores mínimos y máximos permitidos[cite: 32].</li>
+                            <li><strong>step:</strong> Define el intervalo de salto al incrementar o decrementar[cite: 32].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ZURIEL
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>20</h3></td>
+                    <td>number / Formulario Number</td>
+                    <td>
+                        <h1>Formulario de número</h1>
+                        <form action="#" method="get" autocomplete="on">
+                            <label for="numero">Ingresa un número:</label>
+                            <input 
+                                type="number" 
+                                id="numero" 
+                                name="numero" 
+                                value="18" 
+                                min="1" 
+                                max="100" 
+                                step="1" 
+                                required 
+                                placeholder="Escribe un número" 
+                                autofocus 
+                                autocomplete="off"
+                            >
+                            <br><br>
+                            <input type="submit" value="Enviar">
+                            <input type="reset" value="Borrar">
+                        </form>
+                    </td>
+                    <td>
+                        Permite la entrada de valores numéricos con controles de incremento y decremento[cite: 32]:
+                        <br><br>
+                        <ul>
+                            <li><code>&lt;input type="number"&gt;</code> restringe el campo únicamente a números[cite: 32].</li>
+                            <li><strong>min / max:</strong> Delimitan los valores mínimos y máximos permitidos[cite: 32].</li>
+                            <li><strong>step:</strong> Define el intervalo de salto al incrementar o decrementar[cite: 32].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        NO SE QUIEN SEA 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>21</h3></td>
+                    <td>hidden</td>
+                    <td>
+                        <h1>Mi página de ejemplo</h1>
+                        <p style="font-size: 100px;">Chucho es un duro en el frifrayer</p>
+                        <p hidden>Este párrafo está oculto con el atributo hidden</p>
+                        <div hidden>
+                            <h2>Este título también está oculto</h2>
+                        </div>
+                    </td>
+                    <td>
+                        Atributo global de HTML que oculta elementos visualmente de la página web[cite: 33].
+                        <br><br>
+                        <ul>
+                            <li><strong>hidden:</strong> Impide que el elemento y sus contenidos sean renderizados en la pantalla[cite: 33].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        NO SE QUIEN SEA 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>22</h3></td>
+                    <td>radio</td>
+                    <td>
+                        <h1>Formulario</h1>
+                        <div class="sexo">
+                            <strong>Sexo:</strong><br><br>
+                            <input type="radio" name="sexo" value="Masculino" required> Masculino
+                            <br><br>
+                            <input type="radio" name="sexo" value="Femenino"> Femenino
+                        </div>
+                    </td>
+                    <td>
+                        Permite al usuario seleccionar únicamente una opción entre un grupo de opciones excluyentes[cite: 34].
+                        <br><br>
+                        <ul>
+                            <li><strong>name:</strong> Agrupa los botones de opción; todos los radio buttons del mismo grupo deben compartir el mismo valor en este atributo para que sea una selección única[cite: 34].</li>
+                            <li><strong>required:</strong> Hace obligatoria la selección de al menos una opción del grupo[cite: 34].</li>
+                        </ul>
+                    </td>
+                    <td>
+                       IAN
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>23</h3></td>
+                    <td>button submit</td>
+                    <td>
+                        <section>
+                            <h2>¿Cómo funciona el botón Submit?</h2>
+                            <p>Cuando haces clic en un botón de envío, el navegador realiza 3 pasos:</p>
+                            <ol>
+                                <li><strong>Valida:</strong> Revisa que los campos obligatorios estén completos.</li>
+                                <li><strong>Empaca:</strong> Une los datos usando los nombres de cada campo (name="valor").</li>
+                                <li><strong>Envía:</strong> Manda la información a la dirección definida en el formulario.</li>
+                            </ol>
+                        </section>
+                        <hr>
+                        <form action="/enviar" method="post">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                            <br><br>
+                            <button type="submit">Enviar datos</button>
+                        </form>
+                    </td>
+                    <td>
+                        Ejecuta el proceso de envío de datos de un formulario al servidor especificado en el atributo <code>action</code>[cite: 35].
+                        <br><br>
+                        <strong>Pasos del envío:</strong>
+                        <ol>
+                            <li><strong>Valida:</strong> Comprueba la restricción de los campos obligatorios (<code>required</code>)[cite: 35].</li>
+                            <li><strong>Empaca:</strong> Asocia cada valor ingresado con la clave de su atributo <code>name</code>[cite: 35].</li>
+                            <li><strong>Envía:</strong> Transfiere la información usando el método configurado (<code>GET</code> o <code>POST</code>)[cite: 35].</li>
+                        </ol>
+                    </td>
+                    <td>
+                        carlos 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>24</h3></td>
+                    <td>text / Input Text</td>
+                    <td>
+                        <h1>Registro</h1>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+                        <br><br>
+                        <input type="submit" value="Enviar">
+                    </td>
+                    <td>
+                        Campo estándar de entrada para texto en una sola línea.
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><code>type="text"</code>: Define una casilla de entrada de texto genérica.</li>
+                            <li><strong>placeholder:</strong> Muestra un texto tenue con una instrucción o sugerencia dentro del campo.</li>
+                            <li><strong>required:</strong> Marca el campo como obligatorio antes de enviar el formulario.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        julieta
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>25</h3></td>
+                    <td>tel / Input Tel</td>
+                    <td>
+                        <form>
+                            <label for="telefono">Telefono</label><br>
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono" 
+                                value="" 
+                                placeholder="Ej. 5512345678" 
+                                minlength="10" 
+                                maxlength="10" 
+                                pattern="[0-9]{10}" 
+                                required 
+                                autocomplete="tel" 
+                                inputmode="tel" 
+                                aria-label="Numero de telefono"
+                            >
+                        </form>
+                    </td>
+                    <td>
+                        Campo especial para ingresar números telefónicos[cite: 36]. En dispositivos móviles muestra un teclado numérico optimizado para la marcación[cite: 36].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><code>type="tel"</code>: Define una entrada para números de teléfono[cite: 36].</li>
+                            <li><strong>pattern="[0-9]{10}"</strong>: Valida mediante expresión regular que se ingresen exactamente 10 dígitos numéricos[cite: 36].</li>
+                            <li><strong>inputmode="tel"</strong>: Asegura que aparezca el teclado numérico telefónico en pantallas táctiles[cite: 36].</li>
+                            <li><strong>minlength / maxlength</strong>: Restringen la longitud mínima y máxima a 10 caracteres[cite: 36].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        IRVING 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>25</h3></td>
+                    <td>tel / Input Tel</td>
+                    <td>
+                        <form>
+                            <label for="telefono">Telefono</label><br>
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono" 
+                                value="" 
+                                placeholder="Ej. 5512345678" 
+                                minlength="10" 
+                                maxlength="10" 
+                                pattern="[0-9]{10}" 
+                                required 
+                                autocomplete="tel" 
+                                inputmode="tel" 
+                                aria-label="Numero de telefono"
+                            >
+                        </form>
+                    </td>
+                    <td>
+                        Campo especial para ingresar números telefónicos[cite: 36]. En dispositivos móviles muestra un teclado numérico optimizado para la marcación[cite: 36].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><code>type="tel"</code>: Define una entrada para números de teléfono[cite: 36].</li>
+                            <li><strong>pattern="[0-9]{10}"</strong>: Valida mediante expresión regular que se ingresen exactamente 10 dígitos numéricos[cite: 36].</li>
+                            <li><strong>inputmode="tel"</strong>: Asegura que aparezca el teclado numérico telefónico en pantallas táctiles[cite: 36].</li>
+                            <li><strong>minlength / maxlength</strong>: Restringen la longitud mínima y máxima a 10 caracteres[cite: 36].</li>
+                        </ul>
+                    </td>
+                    <td>
+                      DILAN 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>27</h3></td>
+                    <td>time / Input de Tiempo</td>
+                    <td>
+                        <h1>Formularios en HTML: El input tipo "time"</h1>
+                        
+                        <h2>1. Ejemplo Básico</h2>
+                        <form>
+                            <label for="alarma">Selecciona la hora para tu alarma:</label>
+                            <input type="time" id="alarma" name="alarma"><br><br>
+                            <input type="button" value="Guardar Alarma">
+                        </form>
+                        
+                        <hr>
+                        
+                        <h2>2. Ejemplo Avanzado (Horario Restringido)</h2>
+                        <form>
+                            <label for="cita">Hora de la cita médica (09:00 a 18:00):</label>
+                            <input 
+                                type="time" 
+                                id="cita" 
+                                name="cita" 
+                                value="09:00" 
+                                min="09:00" 
+                                max="18:00" 
+                                required
+                            ><br><br>
+                            <input type="button" value="Agendar Cita">
+                        </form>
+                    </td>
+                    <td>
+                        Permite al usuario seleccionar una hora específica (horas y minutos) mediante un selector interactivo[cite: 23].
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><code>type="time"</code>: Genera el control interactivo de tiempo[cite: 23].</li>
+                            <li><strong>value:</strong> Establece la hora predeterminada en formato de 24 horas (ej. <code>"09:00"</code>)[cite: 23].</li>
+                            <li><strong>min / max:</strong> Delimitan el rango de horas permitidas[cite: 23].</li>
+                            <li><strong>required:</strong> Hace obligatoria la selección antes de enviar[cite: 23].</li>
+                        </ul>
+                    </td>
+                    <td>
+                        alexis
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>28</h3></td>
+                    <td>Ejemplos de Input Type y Atributos</td>
+                    <td>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-family: Arial, sans-serif;">
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>1. Text</b><br>
+                                <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" maxlength="30" required autocomplete="off">
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, placeholder, maxlength, required, autocomplete
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>2. Password</b><br>
+                                <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" maxlength="20" required>
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, placeholder, minlength, maxlength, required
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>3. Number</b><br>
+                                <input type="number" name="numero" id="numero" min="1" max="100" step="1" value="10">
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, min, max, step, value
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>4. Date</b><br>
+                                <input type="date" name="fecha" id="fecha" min="2020-01-01" max="2030-12-31" required>
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, min, max, required
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>5. Time</b><br>
+                                <input type="time" name="hora" id="hora" min="08:00" max="20:00" step="60">
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, min, max, step
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>6. Color</b><br>
+                                <input type="color" name="color" id="color" value="#0000ff">
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, value
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>7. File</b><br>
+                                <input type="file" name="archivo" id="archivo" accept=".jpg,.png,.pdf" multiple>
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, accept, multiple
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>8. Checkbox</b><br>
+                                <input type="checkbox" name="aceptar" id="aceptar" value="si" checked required> Aceptar
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, value, checked, required
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>9. Range</b><br>
+                                <input type="range" name="rango" id="rango" min="0" max="100" step="10" value="50">
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, min, max, step, value
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>10. Email</b><br>
+                                <input type="email" name="correo" id="correo" placeholder="ejemplo@gmail.com" maxlength="50" required autocomplete="email">
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, placeholder, maxlength, required, autocomplete
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>11. URL</b><br>
+                                <input type="url" name="pagina" id="pagina" placeholder="https://ejemplo.com" required>
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, placeholder, required
+                                </div>
+                            </div>
+                            <div style="background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px #aaa;">
+                                <b>12. Tel</b><br>
+                                <input type="tel" name="telefono" id="telefono" placeholder="5551234567" maxlength="10" required>
+                                <div style="background-color: #eee; padding: 5px; margin-top: 5px; font-size: 11px;">
+                                    <b>Atributos:</b> type, name, id, placeholder, maxlength, required
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        Muestra un resumen interactivo organizando en cuadrícula los 12 tipos principales de <code>&lt;input&gt;</code> y los atributos aplicables en cada uno.
+                        <br><br>
+                        <strong>Aspectos clave:</strong>
+                        <ul>
+                            <li><strong>Entradas de texto/credenciales:</strong> text, password, email, url, tel.</li>
+                            <li><strong>Entradas de datos continuos/numéricos:</strong> number, range, date, time, color.</li>
+                            <li><strong>Selección y archivos:</strong> file, checkbox.</li>
+                        </ul>
+                    </td>
+                    <td>
+                       EMILIO 
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>29</h3></td>
+                    <td>email / Input Email e interfaz interactiva</td>
+                    <td>
+                        <form onsubmit="event.preventDefault(); alert('¡Formulario enviado correctamente!');">
+                            <label for="interactiveEmail">Correo Electrónico *</label><br>
+                            <input 
+                                type="email" 
+                                id="interactiveEmail" 
+                                name="correo" 
+                                value="usuario@correo.com" 
+                                placeholder="tucorreo@dominio.com" 
+                                required 
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                                minlength="10" 
+                                maxlength="50" 
+                                size="30" 
+                                autocomplete="email" 
+                                list="sugerenciasDominios"
+                            >
+                            <datalist id="sugerenciasDominios">
+                                <option value="usuario@gmail.com">
+                                <option value="usuario@outlook.com">
+                                <option value="usuario@yahoo.com">
+                                <option value="usuario@empresa.org">
+                            </datalist>
+                            <br><br>
+                            <button type="submit">Probar Envío de Formulario</button>
+                        </form>
+                    </td>
+                    <td>
+                        Muestra el uso avanzado del campo <code>&lt;input type="email"&gt;</code> integrado con múltiples atributos de HTML5 para validación nativa y experiencia de usuario.
+                        <br><br>
+                        <strong>Atributos soportados:</strong>
+                        <ul>
+                            <li><strong>value / placeholder:</strong> Valor inicial y texto guía.</li>
+                            <li><strong>required:</strong> Campo de llenado obligatorio.</li>
+                            <li><strong>pattern:</strong> Regla de validación por expresión regular (Regex).</li>
+                            <li><strong>minlength / maxlength:</strong> Restricción de longitud mínima y máxima.</li>
+                            <li><strong>size:</strong> Ancho del input en número de caracteres.</li>
+                            <li><strong>autocomplete / list:</strong> Autocompletado del navegador y sugerencias vía <code>&lt;datalist&gt;</code>.</li>
+                            <li><strong>readonly / disabled / autofocus:</strong> Modos de lectura, desactivación y enfoque automático.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        SEBAS 
+                    </td>
+                </tr>}
+                <tr>
+                    <td><h3>30</h3></td>
+                    <td>week / Selección de Semana</td>
+                    <td>
+                        <form>
+                            <label for="semana">Selecciona una semana:</label><br>
+                            <input type="week" id="semana" name="semana" min="2026-W01" max="2026-W52" required>
+                            <br><br>
+                            <button type="submit">Enviar</button>
+                        </form>
+                    </td>
+                    <td>
+                        Permite al usuario seleccionar una semana específica y un año determinado mediante un calendario interactivo.
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><code>type="week"</code>: Genera el control interactivo de semana.</li>
+                            <li><strong>value:</strong> Establece la semana predeterminada (ej. <code>"2026-W38"</code>).</li>
+                            <li><strong>min / max:</strong> Delimitan el rango de semanas permitidas dentro del año.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        DIEGO
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>31</h3></td>
+                    <td>output / Resultado de Cálculo</td>
+                    <td>
+                        <form oninput="resultado.value = parseInt(num1.value) + parseInt(num2.value)">
+                            <input type="number" id="num1" value="10"> + 
+                            <input type="number" id="num2" value="20"> = 
+                            <output name="resultado" for="num1 num2">30</output>
+                        </form>
+                    </td>
+                    <td>
+                        Representa el resultado de un cálculo o el desenlace de una acción ejecutada mediante scripts.
+                        <br><br>
+                        <strong>Atributos principales:</strong>
+                        <ul>
+                            <li><code>&lt;output&gt;</code>: Etiqueta semántica donde se muestra el resultado dinámico.</li>
+                            <li><strong>for:</strong> Especifica los IDs de los elementos que influyen en el resultado del cálculo.</li>
+                            <li><strong>name:</strong> Identificador del campo para lecturas o scripts.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        ABRIL
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>32</h3></td>
+                    <td>type / Atributo Type</td>
+                    <td>
+                        <form>
+                            <label>Atributo type="text":</label><br>
+                            <input type="text" placeholder="Entrada de texto general"><br><br>
+
+                            <label>Atributo type="password":</label><br>
+                            <input type="password" placeholder="Texto oculto"><br><br>
+
+                            <label>Atributo type="checkbox":</label>
+                            <input type="checkbox"> Opción seleccionable
+                        </form>
+                    </td>
+                    <td>
+                        Es el atributo primordial de la etiqueta <code>&lt;input&gt;</code> que define qué tipo de control o campo de entrada interactivo se va a renderizar en pantalla.
+                        <br><br>
+                        <strong>Aspectos clave:</strong>
+                        <ul>
+                            <li><strong>Función:</strong> Determina el comportamiento del campo (texto, números, contraseñas, casillas, etc.).</li>
+                            <li><strong>Valor por defecto:</strong> Si se omite este atributo, el navegador asignará <code>type="text"</code> por defecto.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        EMILIO
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+    
+</body>
+</html>

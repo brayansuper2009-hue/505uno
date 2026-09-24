@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <h2><a href="index.html">Regresar</a></h2></BR>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Interactivo de Dibujo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            touch-action: none; /* Evita el scroll indeseado en móviles al dibujar */
+        }
+        .canvas-container {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+        /* Custom styling for range input */
+        input[type=range] {
+            accent-color: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col justify-between select-none">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 px-6 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-md shadow-indigo-200">
+                    <i class="fa-solid fa-paint-brush"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-800 leading-tight">Lienzo Creativo</h1>
+                    <p class="text-xs text-slate-500">Estudio de dibujo interactivo y sencillo</p>
+                </div>
+            </div>
+
+            <!-- Acciones Rápidas -->
+            <div class="flex items-center gap-2">
+                <button id="btn-undo" title="Deshacer (Ctrl+Z)" class="flex items-center gap-2 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium text-sm transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span class="hidden sm:inline">Deshacer</span>
+                </button>
+                <button id="btn-clear" title="Limpiar lienzo" class="flex items-center gap-2 px-3.5 py-2 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg font-medium text-sm transition-all duration-200">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span class="hidden sm:inline">Limpiar</span>
+                </button>
+                <button id="btn-download" title="Guardar imagen" class="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white rounded-lg font-medium text-sm shadow-md shadow-indigo-100 transition-all duration-200">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Guardar</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col md:flex-row gap-6">
+
+        <!-- Barra de Herramientas Lateral/Superior -->
+        <aside class="w-full md:w-80 bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm flex flex-col gap-6 shrink-0">
+            
+            <!-- Modo de Herramienta (Pincel / Borrador) -->
+            <div>
+                <label class="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3">Herramienta</label>
+                <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-xl">
+                    <button id="tool-brush" class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm transition-all duration-200 bg-white text-indigo-600 shadow-sm">
+                        <i class="fa-solid fa-paintbrush"></i> Pincel
+                    </button>
+                    <button id="tool-eraser" class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm text-slate-600 hover:text-slate-900 transition-all duration-200">
+                        <i class="fa-solid fa-eraser"></i> Borrador
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paleta y Selector de Color -->
+            <div>
+                <div class="flex justify-between items-center mb-3">
+                    <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Color</label>
+                    <input type="color" id="color-picker" value="#3b82f6" class="w-7 h-7 rounded-full cursor-pointer border-0 bg-transparent p-0">
+                </div>
+                <div class="grid grid-cols-6 gap-2" id="color-palette">
+                    <!-- Presets de Colores -->
+                    <button data-color="#000000" class="w-8 h-8 rounded-full bg-black ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#64748b" class="w-8 h-8 rounded-full bg-slate-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#ef4444" class="w-8 h-8 rounded-full bg-red-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#f97316" class="w-8 h-8 rounded-full bg-orange-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#eab308" class="w-8 h-8 rounded-full bg-yellow-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#10b981" class="w-8 h-8 rounded-full bg-emerald-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#06b6d4" class="w-8 h-8 rounded-full bg-cyan-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#3b82f6" class="w-8 h-8 rounded-full bg-blue-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95 border-2 border-indigo-600 scale-105"></button>
+                    <button data-color="#6366f1" class="w-8 h-8 rounded-full bg-indigo-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#a855f7" class="w-8 h-8 rounded-full bg-purple-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#ec4899" class="w-8 h-8 rounded-full bg-pink-500 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                    <button data-color="#ffffff" class="w-8 h-8 rounded-full bg-white border border-slate-300 ring-2 ring-offset-2 ring-transparent transition-transform hover:scale-110 active:scale-95"></button>
+                </div>
+            </div>
+
+            <!-- Tamaño del Trazo -->
+            <div>
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-xs font-semibold uppercase tracking-wider text-slate-400">Tamaño del Pincel</label>
+                    <span id="brush-size-val" class="text-xs font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">8px</span>
+                </div>
+                <input type="range" id="brush-size" min="1" max="50" value="8" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                <!-- Vista previa de grosor -->
+                <div class="mt-4 flex items-center justify-center h-12 bg-slate-50 rounded-xl border border-dashed border-slate-200">
+                    <div id="brush-preview" class="bg-blue-500 rounded-full transition-all duration-100" style="width: 8px; height: 8px;"></div>
+                </div>
+            </div>
+
+            <!-- Fondo del Canvas -->
+            <div class="mt-auto pt-4 border-t border-slate-100">
+                <label class="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">Color de Fondo</label>
+                <div class="flex gap-2">
+                    <button data-bg="#ffffff" class="btn-bg flex-1 py-1.5 border border-slate-200 rounded-lg text-xs font-medium bg-white shadow-sm">Blanco</button>
+                    <button data-bg="#f8fafc" class="btn-bg flex-1 py-1.5 border border-slate-200 rounded-lg text-xs font-medium bg-slate-50">Gris Claro</button>
+                    <button data-bg="#0f172a" class="btn-bg flex-1 py-1.5 border border-slate-800 rounded-lg text-xs font-medium bg-slate-900 text-white">Oscuro</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Área del Canvas -->
+        <div class="flex-1 flex flex-col relative min-h-[400px] md:min-h-[500px]">
+            <div id="canvas-wrapper" class="w-full h-full bg-white rounded-2xl border border-slate-200/80 canvas-container overflow-hidden relative flex items-center justify-center">
+                <canvas id="paint-canvas" class="cursor-crosshair block w-full h-full"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-3 text-center text-xs text-slate-400">
+        Usa el ratón o la pantalla táctil para dibujar. ¡Haz volar tu imaginación!
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Referencias del DOM
+            const canvas = document.getElementById('paint-canvas');
+            const ctx = canvas.getContext('2d');
+            const wrapper = document.getElementById('canvas-wrapper');
+            
+            // Controles
+            const toolBrush = document.getElementById('tool-brush');
+            const toolEraser = document.getElementById('tool-eraser');
+            const colorPicker = document.getElementById('color-picker');
+            const colorPalette = document.getElementById('color-palette');
+            const brushSize = document.getElementById('brush-size');
+            const brushSizeVal = document.getElementById('brush-size-val');
+            const brushPreview = document.getElementById('brush-preview');
+            const btnClear = document.getElementById('btn-clear');
+            const btnUndo = document.getElementById('btn-undo');
+            const btnDownload = document.getElementById('btn-download');
+            const bgButtons = document.querySelectorAll('.btn-bg');
+
+            // Estado de la aplicación
+            let isDrawing = false;
+            let currentMode = 'brush'; // 'brush' o 'eraser'
+            let currentColor = '#3b82f6';
+            let currentBgColor = '#ffffff';
+            let currentSize = 8;
+            let lastX = 0;
+            let lastY = 0;
+
+            // Historial para Deshacer (Undo)
+            let undoStack = [];
+            const MAX_UNDO = 20;
+
+            function resizeCanvas() {
+                // Guardar contenido actual antes de redimensionar
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCanvas.width = canvas.width;
+                tempCanvas.height = canvas.height;
+                if (canvas.width > 0 && canvas.height > 0) {
+                    tempCtx.drawImage(canvas, 0, 0);
+                }
+
+                // Ajustar al contenedor real
+                const rect = wrapper.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+
+                // Restaurar el color de fondo
+                fillBackground(currentBgColor);
+
+                // Redibujar el dibujo previo
+                if (tempCanvas.width > 0 && tempCanvas.height > 0) {
+                    ctx.drawImage(tempCanvas, 0, 0);
+                }
+
+                saveState(); // Guardar estado inicial
+            }
+
+            function fillBackground(color) {
+                currentBgColor = color;
+                ctx.save();
+                ctx.fillStyle = color;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.restore();
+            }
+
+            // Guardar estado actual en la pila de undo
+            function saveState() {
+                if (undoStack.length >= MAX_UNDO) {
+                    undoStack.shift();
+                }
+                undoStack.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+                updateUndoButton();
+            }
+
+            function updateUndoButton() {
+                btnUndo.disabled = undoStack.length <= 1;
+            }
+
+            function getCoordinates(e) {
+                const rect = canvas.getBoundingClientRect();
+                let clientX = e.clientX;
+                let clientY = e.clientY;
+
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+
+                return {
+                    x: clientX - rect.left,
+                    y: clientY - rect.top
+                };
+            }
+
+            function startDrawing(e) {
+                isDrawing = true;
+                const coords = getCoordinates(e);
+                lastX = coords.x;
+                lastY = coords.y;
+
+                // Configurar estilos de trazado
+                ctx.lineWidth = currentSize;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+
+                if (currentMode === 'eraser') {
+                    ctx.strokeStyle = currentBgColor;
+                } else {
+                    ctx.strokeStyle = currentColor;
+                }
+
+                // Dibujar un punto individual al hacer click simple
+                ctx.beginPath();
+                ctx.arc(lastX, lastY, currentSize / 2, 0, Math.PI * 2);
+                ctx.fillStyle = ctx.strokeStyle;
+                ctx.fill();
+
+                // Preparar la línea
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+            }
+
+            function draw(e) {
+                if (!isDrawing) return;
+                e.preventDefault(); // Evitar scroll en móvil
+
+                const coords = getCoordinates(e);
+                
+                // Usar curva cuadrática para trazos ultra suaves
+                const midX = (lastX + coords.x) / 2;
+                const midY = (lastY + coords.y) / 2;
+
+                ctx.quadraticCurveTo(lastX, lastY, midX, midY);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(midX, midY);
+
+                lastX = coords.x;
+                lastY = coords.y;
+            }
+
+            function stopDrawing() {
+                if (isDrawing) {
+                    ctx.stroke();
+                    ctx.closePath();
+                    isDrawing = false;
+                    saveState();
+                }
+            }
+
+            // Eventos del Mouse
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseleave', stopDrawing);
+
+            // Eventos Táctiles
+            canvas.addEventListener('touchstart', startDrawing, { passive: false });
+            canvas.addEventListener('touchmove', draw, { passive: false });
+            canvas.addEventListener('touchend', stopDrawing);
+
+            // Selección de Modo (Pincel/Borrador)
+            toolBrush.addEventListener('click', () => setMode('brush'));
+            toolEraser.addEventListener('click', () => setMode('eraser'));
+
+            function setMode(mode) {
+                currentMode = mode;
+                if (mode === 'brush') {
+                    toolBrush.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm transition-all duration-200 bg-white text-indigo-600 shadow-sm";
+                    toolEraser.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm text-slate-600 hover:text-slate-900 transition-all duration-200";
+                    brushPreview.style.backgroundColor = currentColor;
+                } else {
+                    toolEraser.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm transition-all duration-200 bg-white text-rose-600 shadow-sm";
+                    toolBrush.className = "flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg font-medium text-sm text-slate-600 hover:text-slate-900 transition-all duration-200";
+                    brushPreview.style.backgroundColor = '#94a3b8';
+                }
+            }
+
+            // Selector de Color
+            colorPicker.addEventListener('input', (e) => {
+                currentColor = e.target.value;
+                setMode('brush');
+                updatePaletteHighlight(null);
+            });
+
+            // Paleta rápida de colores
+            colorPalette.addEventListener('click', (e) => {
+                const target = e.target.closest('button');
+                if (!target) return;
+
+                const color = target.dataset.color;
+                if (color) {
+                    currentColor = color;
+                    colorPicker.value = color;
+                    setMode('brush');
+                    updatePaletteHighlight(target);
+                }
+            });
+
+            function updatePaletteHighlight(activeBtn) {
+                const buttons = colorPalette.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.classList.remove('border-2', 'border-indigo-600', 'scale-105');
+                });
+                if (activeBtn) {
+                    activeBtn.classList.add('border-2', 'border-indigo-600', 'scale-105');
+                }
+            }
+
+            // Cambio de Tamaño
+            brushSize.addEventListener('input', (e) => {
+                currentSize = parseInt(e.target.value);
+                brushSizeVal.textContent = `${currentSize}px`;
+                brushPreview.style.width = `${currentSize}px`;
+                brushPreview.style.height = `${currentSize}px`;
+            });
+
+            // Cambiar fondo
+            bgButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const newBg = e.target.dataset.bg;
+                    fillBackground(newBg);
+                    saveState();
+                });
+            });
+
+            // Botón Limpiar
+            btnClear.addEventListener('click', () => {
+                fillBackground(currentBgColor);
+                saveState();
+            });
+
+            // Botón Deshacer
+            btnUndo.addEventListener('click', undo);
+
+            function undo() {
+                if (undoStack.length > 1) {
+                    undoStack.pop(); // Eliminar el estado actual
+                    const previousState = undoStack[undoStack.length - 1];
+                    ctx.putImageData(previousState, 0, 0);
+                    updateUndoButton();
+                }
+            }
+
+            // Tecla rápida Ctrl+Z para deshacer
+            window.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+                    undo();
+                }
+            });
+
+            btnDownload.addEventListener('click', () => {
+                // Crear un enlace temporal de descarga
+                const link = document.createElement('a');
+                link.download = `mi-dibujo-${Date.now()}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+
+            // Inicialización general al cargar ventana
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+        });
+    </script>
+</body>
+</html>
